@@ -36,7 +36,7 @@ body {
 
 .btn-black {
     background: black;
-    color: white !important;
+    color: white;
 }
 
 .shop-now-button:hover,
