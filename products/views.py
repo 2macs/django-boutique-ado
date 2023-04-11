@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Product
 
 
@@ -7,7 +9,22 @@ def all_products(request):
     """ A view to show all products including sorting and searching """
 
     products = Product.objects.all()
-    context = {'products': products}
+    query = None  # make page can page can load if a search term not provided.
+
+    # if somebody uses search bar
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, 'No search criteria entered!')
+                return redirect(request('products'))
+
+            # the pipe means OR, the i makes it case insensitive
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
+    context = {'products': products,
+               'search_term': query}
     return render(request, 'products/products.html', context)
 
 
