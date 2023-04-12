@@ -112,4 +112,42 @@
             </div>
         </div>
     </div>
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>	
+    </div>
+{% endblock %}
+
+
+{% block postloadjs %}
+{{ block.super }}  <!--Appends to anything already in block, doesn't replace it -->
+<!--JQuery for back to top button -->
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
+<script type="text/javascript">
+    $('#sort-selector').change(function() {
+        var selector = $(this);
+        var currentUrl = new URL(window.location); // gets the current URL //
+
+        var selectedVal = selector.val();   // get value selected by user
+        if(selectedVal != "reset"){
+            var sort = selectedVal.split("_")[0];  //split selection into sort bit and asc/desc bit
+            var direction = selectedVal.split("_")[1];
+            //I think this overwrites the GET parameters in Views.py
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl); //change page to the new URL value
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}
