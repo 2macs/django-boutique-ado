@@ -1,26 +1,21 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from products.models import Product
-=======
-from django.shortcuts import render, redirect
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
 
 # Create your views here.
+
 
 def view_bag(request):
     """ A view that renders the bag contents page """
 
     return render(request, 'bag/bag.html')
 
+
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
-<<<<<<< HEAD
     product = get_object_or_404(Product, pk=item_id)
-=======
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
@@ -32,7 +27,6 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
                 bag[item_id]['items_by_size'][size] += quantity
-<<<<<<< HEAD
                 messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
             else:
                 bag[item_id]['items_by_size'][size] = quantity
@@ -108,17 +102,3 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-=======
-            else:
-                bag[item_id]['items_by_size'][size] = quantity
-        else:
-            bag[item_id] = {'items_by_size': {size: quantity}}
-    else:
-        if item_id in list(bag.keys()):
-            bag[item_id] += quantity
-        else:
-            bag[item_id] = quantity
-
-    request.session['bag'] = bag
-    return redirect(redirect_url)
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
