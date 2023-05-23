@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-waonn3ws042dtse1=7^_pm^q*43eu*))dhhea@gi$z!++(&$b2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com',
+                 'localhost', 'https://2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com:8000/']
 
 
 # Application definition
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
-    'products'
+    'products',
+    'bag',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.context.bag_contents',
             ],
         },
     },
@@ -159,3 +162,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
