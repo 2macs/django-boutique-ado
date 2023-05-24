@@ -24,7 +24,6 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-<<<<<<< HEAD
                     <div class="d-block d-md-none">
                         <div class="row">
                             <div class="col">
@@ -62,9 +61,6 @@
                         </div>
                     </div>
                     <div class="table-responsive rounded d-none d-md-block">
-=======
-                    <div class="table-responsive rounded">
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
@@ -79,72 +75,30 @@
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-<<<<<<< HEAD
                                         {% include "bag/product-image.html" %}
                                     </td>
                                     <td class="py-3">
                                         {% include "bag/product-info.html" %}
-=======
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-<<<<<<< HEAD
                                         {% include "bag/quantity-form.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
-=======
-                                        <p class="my-0">{{ item.quantity }}</p>
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.product.price }}</p>
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-<<<<<<< HEAD
                                     {% include "bag/bag-total.html" %}
-=======
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-<<<<<<< HEAD
                                     {% include "bag/checkout-buttons.html" %}
-=======
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
                                 </td>
                             </tr>
                         </table>
@@ -161,7 +115,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 {% endblock %}
 
 {% block postloadjs %}
@@ -194,6 +147,4 @@
          });
     })
 </script>
-=======
->>>>>>> f0b5f16181d459c5d980cb981ccf55cccfe78b36
 {% endblock %}
