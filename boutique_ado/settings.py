@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com',
-                 'localhost', 'https://2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com:8000/']
+                 'localhost', 'https://2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com:8000/', '127.0.0.1']
 
 
 # Application definition
