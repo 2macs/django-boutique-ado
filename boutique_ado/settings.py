@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+
 if os.path.isfile("env.py"):
     import env
 
@@ -29,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-2macs-django-boutique-ad-13ylkzwdhd.us2.codeanyapp.com',
                  'localhost', 'https://2macs-django-boutique-ad-lhxxyeokjg.us2.codeanyapp.com:8000/', '127.0.0.1']
 
 
